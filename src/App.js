@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { makeStyles } from '@material-ui/core/styles';
-import {Grid, Container, CardMedia, Typography, Button} from '@material-ui/core';
+import {Grid, Container, CardMedia, Typography, Button, TextField} from '@material-ui/core';
 import {AddShoppingCart, Instagram, YouTube, Search} from '@material-ui/icons'
 
 import Carousel from 'react-bootstrap/Carousel'
@@ -328,10 +328,10 @@ export default function App() {
       </Container>
 
       <Container maxWidth="md" style={{maringTop: "40px"}}>
-        <Grid container>
+        <Grid container spacing="3">
 
-          <Grid item>
-            <Grid conatiner direction="column" alignItems="flex-start" md="6" xs="12">
+          <Grid item md="6" xs="12">
+            <Grid container direction="column" alignItems="flex-start">
               <Grid item>
                 <Typography variant="h3" align="left">
                   Zostaw suba!
@@ -345,10 +345,18 @@ export default function App() {
             </Grid>  
           </Grid>
           
-          <Grid item>
-            <Grid conatiner>
-              <Grid item>Input itp.</Grid>
-              <Grid item></Grid>
+          <Grid item md="6" xs="12">
+            <Grid container direction="row" wrap="nowrap" spacing="2" alignItems="center">
+              <Grid item>
+                <TextField variant="outlined" label="Twój email">
+
+                </TextField>
+              </Grid>
+              <Grid item>
+                <Button variant="outlined">
+                  SUBSKRYBUJ
+                </Button>
+              </Grid>
             </Grid> 
           </Grid>
         </Grid>
@@ -393,12 +401,16 @@ export default function App() {
         <div className={classes.separatorEnd}/>
       </Container>
 
-      <Container>
+      <Container style={{marginTop: "8px", marginBottom: "8px"}}>
         <Grid container justify="space-between">
           <Grid item>
-            <Grid conatiner spacing="2">
-              <Instagram/>
-              <YouTube />
+            <Grid container spacing="1">
+              <Grid item>
+                <Instagram/>
+              </Grid>
+              <Grid item>
+                <YouTube/>
+              </Grid>
             </Grid>
           </Grid>
           <Grid item>
