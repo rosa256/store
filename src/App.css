@@ -2,3 +2,12 @@
   text-align: center;
 }
 
+.makeStyles-navBar-4 div{
+  border-bottom: 3px solid snow;
+  cursor: pointer;
+}
+.makeStyles-navBar-4 div:hover {
+  border-bottom: 3px solid silver;
+  cursor: pointer;
+}
+

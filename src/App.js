@@ -348,7 +348,7 @@ export default function App() {
           <Grid item md="6" xs="12">
             <Grid container direction="row" wrap="nowrap" spacing="2" alignItems="center">
               <Grid item>
-                <TextField variant="outlined" label="Twój email">
+                <TextField variant="outlined" label="Twój email" >
 
                 </TextField>
               </Grid>
