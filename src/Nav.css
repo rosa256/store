@@ -1,0 +1,24 @@
+.navBarSticky{
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0px;
+    z-index:99;
+    background-color: white;
+    margin-top: 4px;
+  }
+
+.navBar{
+  padding-top: 17px;
+  padding-bottom: 17px;
+}
+  
+.makeStyles-navBar-4 div{
+  border-bottom: 3px solid snow;
+  cursor: pointer;
+}
+.makeStyles-navBar-4 div:hover {
+  border-bottom: 3px solid silver;
+  cursor: pointer;
+}
+
+  

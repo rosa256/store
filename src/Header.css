@@ -1,0 +1,13 @@
+.rootHeader{
+    padding-top: 24px;
+    padding-bottom: 24px;
+    border-style: solid;
+}
+.loginHeader{
+    padding-right: 12px;
+    font-weight: bold;
+}
+.iconHeader{
+    /* paddingTop: "5px";*/
+    font-size: 27px;
+}
