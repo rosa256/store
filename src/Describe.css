@@ -1,0 +1,8 @@
+.sectionPadding{
+    padding-top: 64px;
+}
+.section{
+    font-size:21;
+    line-height:"1.56";
+    justify-content:"flex-end";
+  }
