@@ -8,7 +8,7 @@ function FooterSpacer(){
     <Container style={{marginTop: "8px", marginBottom: "8px"}}>
         <Grid container justify="space-between">
         <Grid item>
-            <Grid container spacing="1">
+            <Grid container>
             <Grid item>
                 <Instagram/>
             </Grid>

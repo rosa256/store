@@ -2,18 +2,21 @@ import React from 'react';
 import './App.css';
 import Nav from './Nav';
 import Header from './Header';
-import CustomCarusel from './CustomCarusel';
-import Recomended from './Recomended';
+import CustomCarusel from './home/CustomCarusel';
+import Recomended from './home/Recomended';
 import Footer from './Footer';
-import TwoPhotos from './TwoPhotos';
+import TwoPhotos from './home/TwoPhotos';
 import FooterSpacer from './FooterSpacer';
 import Separator from './Separator';
-import Subscribe from './Subscribe';
-import PoolPhoto from './PoolPhoto';
-import Describe from './Describe';
+import Subscribe from './home/Subscribe';
+import PoolPhoto from './home/PoolPhoto';
+import Describe from './home/Describe';
+import Products from './products/Products';
+
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 import {makeStyles } from '@material-ui/core/styles';
-import {Grid, Container, CardMedia, Typography, Button, TextField} from '@material-ui/core';
+import {Container} from '@material-ui/core';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -41,23 +44,27 @@ export default function App() {
   return (
     <div className="App">
 
-      <Header/>
-      <Nav/>
-      <CustomCarusel/>
-
-      <TwoPhotos />
-
-      <Recomended/>
-
-      <Describe />
-
-      <PoolPhoto />
-
-      <Separator />
-      <Subscribe />
-      <Separator />
-      <Footer />
-
+      <Router>
+        <Header/>
+        <Nav/>
+        <Switch>
+          <Route path="/" exact>
+            <CustomCarusel/>
+            <TwoPhotos />
+            <Recomended/>
+            <Describe />
+            <PoolPhoto />
+            <Separator />
+            <Subscribe />
+            <Separator />
+            <Footer />
+          </Route>
+          <Route path="/kategoria/t-shirty">
+            <Products/>
+          </Route>
+        </Switch>
+      </Router>
+      
       <Container maxWidth="lg">
         <div className={classes.separatorEnd}/>
       </Container>
@@ -66,3 +73,8 @@ export default function App() {
     </div>
   );
 }
+
+
+
+
+
