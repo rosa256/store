@@ -1,5 +1,5 @@
 import React from 'react';
-import './ProductCategory.css';
+import './Categories.css';
 import { Container, Typography, Grid, CardMedia } from '@material-ui/core';
 
 function ProductCategory(){
