@@ -33,7 +33,7 @@ function CustomCarusel(){
             <Carousel.Item>
                 <img
                 className="d-block w-100"
-                src="https://cdn.shoplo.com/4326/s/46/assets/banner_15922254450.jpg"
+                src="https://cdn.shoplo.com/4326/s/46/assets/banner_15951635470.jpg"
                 alt="Third slide"
                 />
 

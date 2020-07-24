@@ -1,14 +1,24 @@
 import React from 'react';
 import './ProductItem.css';
-import {Grid, CardMedia, Typography, Button} from '@material-ui/core'
+import {Grid, CardMedia, Typography, Button, Fade, Card} from '@material-ui/core'
 
-function ProductItem({imageUrl = "https://cdn.shoplo.com/4326/products/th480/aaae/1406-05.jpg",name ="DOMYŚLNY",price="-10.00"}){
+
+function ProductItem({imageUrl = "https://cdn.shoplo.com/4326/products/th480/aaae/1406-05.jpg",name ="DOMYŚLNY(R)",price="-10.00(R)", imageHover}){
 
     return(
         <Grid item md="4" sm="6" xs="12">
             <Grid container direction="column">
-                <CardMedia component="img"
-                image={imageUrl}/>
+                
+                <Grid item className="image-wrapper">
+                        <CardMedia className="imageStyle" 
+                        component="img"
+                        image={imageUrl}/>
+
+                        <CardMedia className="image-hover"
+                        component="img"
+                        image={imageHover}/>
+                </Grid>
+
 
                 <Typography className="productItemPadding">
                 {name}

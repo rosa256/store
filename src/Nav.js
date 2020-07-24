@@ -1,25 +1,61 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './Nav.css';
-import {Grid, Container} from '@material-ui/core';
+import {Grid, Container, Button} from '@material-ui/core';
 import {Link} from 'react-router-dom';
 
-function Nav(){
-    const navStyle = {
-        color: 'dark'
-    };
+const btnList = [
+    {
+        id:1,
+        name:"t-shirty"
+    },
+    {
+        id:2,
+        name:"gadzety"
+    },
+    {
+        id:3,
+        name:"bluzy"
+    },
+    {
+        id:4,
+        name:"longsleeve"
+    },
+    {
+        id:5,
+        name:"los-angeles"
+    },
+    {
+        id:6,
+        name:"buirka"
+    },
+];
+
+function Nav (){
+  
+    const[activeButtonId, setActiveButtonId] = useState(0);
+
+    const handleClickOption = (e) => {
+        setActiveButtonId(Number(e.currentTarget.getAttribute('value')));
+        console.log(e.currentTarget.getAttribute('value'));
+   }
 
     return(
         <div className="navBarSticky">
             <Container maxWidth="md">
             <Grid container spacing={1} className="navBar" justify="space-evenly"  direction="row">
-                
-                <Link className="link" to="/kategoria/t-shirty"><Grid item>T-SHIRT</Grid></Link>
-                <Link className="link" to="/kategoria/gadzety"><Grid item>GADŻETY</Grid></Link>
-                <Link className="link" to="/kategoria/longsleeve"><Grid item>LONGSLEEVE</Grid></Link>
-                <Link className="link" to="/kategoria/bluzy"><Grid item>BLUZY</Grid></Link>
-                <Link className="link" to="/kategoria/biurka"><Grid item>BIURKA</Grid></Link>
-                <Link className="link" to="/kategoria/nowosci"><Grid item>NOWOŚCI</Grid></Link>
-                <Link className="link" to="/kategoria/los-angeles"><Grid item>LOS ANGELES</Grid></Link>
+                {btnList.map(btn =>(
+                    <Link 
+                        key = {btn.id}
+                        onClick={handleClickOption}
+                        value={btn.id} 
+                        className={[btn.id === activeButtonId ? "is_active" : "", "link"].join(' ')} 
+                        to={"/kategoria/" + btn.name}
+                    >
+                        {btn.name}
+                    </Link>
+                ))}
+
+
             </Grid>
             </Container>
       </div>

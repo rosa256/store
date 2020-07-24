@@ -6,4 +6,23 @@
 }
 .sectionPadding{
     padding-top: 64px;
-  }
+}
+
+.image-wrapper {
+    position: relative;
+    width: none !important;
+}
+.image-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+    width: auto !important /* Automatic width:100% from Ui component made ugly look of image */
+}
+.image-hover:hover {
+    opacity: 1;
+}
+.imageStyle {
+    width: auto !important;/* Automatic width:100% from Ui component made ugly look of image */
+}
