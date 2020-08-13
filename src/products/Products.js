@@ -49,7 +49,7 @@ const CategoryProducts = () => {
     return (
         products.map((product, index) => {
             return(
-                <ProductItem imageUrl={productsLinks[index]} name={product.name} price={product.price} imageHover={hoverImages[index]}/>                
+                <ProductItem imageUrl={productsLinks[index]} name={product.name} category={product.category} price={product.price} imageHover={hoverImages[index]}/>                
             );                
         })
     );

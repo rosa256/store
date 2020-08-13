@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 import Nav from './Nav';
 import Header from './Header';
@@ -12,6 +12,8 @@ import Subscribe from './home/Subscribe';
 import PoolPhoto from './home/PoolPhoto';
 import Describe from './home/Describe';
 import Products from './products/Products';
+import axios from "axios";
+
 
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
@@ -37,6 +39,21 @@ const useStyles = makeStyles({
   },
 });
 
+const Categories = () => {
+  const [categories, setCategories] = useState([]);
+
+  const getCategories = () => {
+    axios.get("http://localhost:8080/categories")
+    .then(res => {
+      console.log(res);
+      setCategories(res.data);
+    })
+  }
+
+  useEffect(()=> {
+    getCategories();
+  }, []);
+};
 
 export default function App() {
   const classes = useStyles();
