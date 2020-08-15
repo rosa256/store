@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 const btnList = [
     {
         id:1,
-        name:"t-shirty"
+        name:"TSHIRT"
     },
     {
         id:2,

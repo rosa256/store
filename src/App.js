@@ -53,6 +53,15 @@ const Categories = () => {
   useEffect(()=> {
     getCategories();
   }, []);
+  return (
+    categories.map((category, index) =>{
+      return(
+        <Route path={"/kategoria/" + category}>
+          <Products/>
+        </Route>
+      );
+    })
+  );
 };
 
 export default function App() {
@@ -76,11 +85,10 @@ export default function App() {
             <Separator />
             <Footer />
           </Route>
-          <Route path="/kategoria/t-shirty">
-            <Products/>
-          </Route>
+          <Categories/>          
         </Switch>
       </Router>
+
       
       <Container maxWidth="lg">
         <div className={classes.separatorEnd}/>
