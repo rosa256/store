@@ -2,42 +2,39 @@ import React, {useState, useEffect} from 'react';
 import './Nav.css';
 import {Grid, Container, Button} from '@material-ui/core';
 import {Link} from 'react-router-dom';
+import axios from "axios";
 
-const btnList = [
-    {
-        id:1,
-        name:"TSHIRT"
-    },
-    {
-        id:2,
-        name:"gadzety"
-    },
-    {
-        id:3,
-        name:"bluzy"
-    },
-    {
-        id:4,
-        name:"longsleeve"
-    },
-    {
-        id:5,
-        name:"los-angeles"
-    },
-    {
-        id:6,
-        name:"buirka"
-    },
-];
 
-function Nav (){
-  
-    const[activeButtonId, setActiveButtonId] = useState(0);
+function Nav(){
+    const [activeButtonId, setActiveButtonId] = useState(0);
+    const [btnList, setNavButtonsList] = useState([]);
+
+
+    const generateNavButtons = () =>{
+        var categories = [];
+        axios.get("http://localhost:8080/categories")
+        .then(res =>{
+            categories = res.data;
+            var tempBtnList = [];
+            categories.map((category,index) => {
+                tempBtnList.push({
+                    "id":index,
+                    "categoryName":category
+                    }
+                )
+            })
+            setNavButtonsList(tempBtnList);
+        });
+    }
 
     const handleClickOption = (e) => {
         setActiveButtonId(Number(e.currentTarget.getAttribute('value')));
         console.log(e.currentTarget.getAttribute('value'));
    }
+
+   useEffect(()=>{
+       generateNavButtons();
+    }, []);
 
     return(
         <div className="navBarSticky">
@@ -49,13 +46,11 @@ function Nav (){
                         onClick={handleClickOption}
                         value={btn.id} 
                         className={[btn.id === activeButtonId ? "is_active" : "", "link"].join(' ')} 
-                        to={"/kategoria/" + btn.name}
+                        to={"/kategoria/" + btn.categoryName}
                     >
-                        {btn.name}
+                        {btn.categoryName}
                     </Link>
                 ))}
-
-
             </Grid>
             </Container>
       </div>
