@@ -9,7 +9,7 @@ function Header(){
         <Container maxWidth="md" className="rootHeader">
             <Grid container  justify="flex-start" alignItems="center" >
 
-            <Grid item sm='12' md='4'>
+            <Grid item sm={12} md={4}>
                 <Grid container spacing={1} >
                     <Grid item> <Instagram/> </Grid>
                     <Grid item> <YouTube/> </Grid>
@@ -17,7 +17,7 @@ function Header(){
                 </Grid>
             </Grid>
 
-            <Grid item sm='12' md='4'>
+            <Grid item sm={12} md={4}>
                 <Grid container>
                     <Link className="link" to="/">
                             <CardMedia
@@ -27,7 +27,7 @@ function Header(){
                 </Grid>
             </Grid>
 
-            <Grid item sm='12' md='4'>
+            <Grid item sm={12} md={4}>
                 <Grid container justify="flex-end" alignItems="center" spacing={1}>
                     <Grid item>
                         <Typography className="loginHeader">Zaloguj się</Typography>

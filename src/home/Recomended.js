@@ -1,5 +1,5 @@
 import React, {useState, useEffect } from 'react';
-import {Grid, Container, CardMedia, Typography, Button} from '@material-ui/core';
+import {Grid, Container, Typography} from '@material-ui/core';
 import ProductItem from '../products/ProductItem'
 import './Recomended.css'
 import axios from "axios";
@@ -59,8 +59,8 @@ function Recomended(){
 
     return(
     <Container maxWidth="lg" className="sectionPadding">
-        <Grid container spacing="3">
-            <Grid item xs="12">
+        <Grid container spacing={3}>
+            <Grid item xs={12}>
             <Typography variant="h3" className="recomend" >Polecamy</Typography>
             </Grid>
             

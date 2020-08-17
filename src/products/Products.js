@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import './Products.css';
-import { Container, Typography, Grid, CardMedia } from '@material-ui/core';
+import { Container, Grid} from '@material-ui/core';
 import Categories from './Categories';
 import ProductNavBar from './ProductNavBar';
 import ProductItem from './ProductItem';
@@ -37,7 +37,6 @@ const CategoryProducts = () => {
         axios.get("http://localhost:8080/products")
         .then(res => {
             console.log(res);
-            
             setProducts(res.data)            
         });
     };
@@ -64,7 +63,7 @@ class Products extends React.Component{
                 <Categories/>
                 <ProductNavBar/>
                 <Container style={{marginTop:'24px'}} maxWidth="lg">
-                    <Grid container spacing="3">
+                    <Grid container spacing={3}>
                         <CategoryProducts/>
                     </Grid>
                 </Container>
