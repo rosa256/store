@@ -7,8 +7,8 @@ import ProductItem from './ProductItem';
 import axios from "axios";
 
 
-const CategoryProducts = () => {
-
+const CategoryProducts = (props) => {
+    console.log(props.category)
     const [products, setProducts] = useState([]);
     const productsLinks = [
         "https://cdn.shoplo.com/4326/products/th480/aaae/1406-05.jpg",
@@ -34,7 +34,7 @@ const CategoryProducts = () => {
     ]
 
     const getProducts = () => {
-        axios.get("http://localhost:8080/products")
+        axios.get("http://localhost:8080/kategoria/" + props.category)
         .then(res => {
             console.log(res);
             
@@ -56,21 +56,19 @@ const CategoryProducts = () => {
 };
 
 
-class Products extends React.Component{
-
-    render(){
-        return(
-            <div>
-                <Categories/>
-                <ProductNavBar/>
-                <Container style={{marginTop:'24px'}} maxWidth="lg">
-                    <Grid container spacing="3">
-                        <CategoryProducts/>
-                    </Grid>
-                </Container>
-            </div>
-        );
-    }
+function Products(props){
+    const category = props.category;
+    return(
+        <div>
+            <Categories/>
+            <ProductNavBar/>
+            <Container style={{marginTop:'24px'}} maxWidth="lg">
+                <Grid container spacing="3">
+                    <CategoryProducts category={category}/>
+                </Grid>
+            </Container>
+        </div>
+    );
 }
 
 export default Products;

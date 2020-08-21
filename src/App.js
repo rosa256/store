@@ -57,7 +57,7 @@ const Categories = () => {
     categories.map((category, index) =>{
       return(
         <Route path={"/kategoria/" + category}>
-          <Products/>
+          <Products category={category}/>
         </Route>
       );
     })

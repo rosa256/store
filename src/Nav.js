@@ -5,18 +5,20 @@ import {Link} from 'react-router-dom';
 import axios from "axios";
 
 
+
 function Nav(){
     const [activeButtonId, setActiveButtonId] = useState(0);
     const [btnList, setNavButtonsList] = useState([]);
 
-
+    //TODO: POBIERANIE KATEGORI Z BAZY NA PODSTAIWE WARTOSCI Z ENUMA ProductCateories.
+    //Żeby uniknąć sytuacji kiedy na bazie nie ma produktów = nie ma kategori i nav bar nie ma przycisków. 
     const generateNavButtons = () =>{
-        var categories = [];
+        var productCategories = [];
         axios.get("http://localhost:8080/categories")
         .then(res =>{
-            categories = res.data;
+            productCategories = res.data;
             var tempBtnList = [];
-            categories.map((category,index) => {
+            productCategories.map((category,index) => {
                 tempBtnList.push({
                     "id":index,
                     "categoryName":category
