@@ -5,9 +5,9 @@ import {Container, Grid, Typography, TextField, Button} from '@material-ui/core'
 function Subscribe(){
   return(
   <Container maxWidth="md" style={{maringTop: "40px"}}>
-  <Grid container spacing="3">
+  <Grid container spacing={3}>
 
-    <Grid item md="6" xs="12">
+    <Grid item md={6} xs={12}>
       <Grid container direction="column" alignItems="flex-start">
         <Grid item>
           <Typography variant="h3" align="left">
@@ -22,8 +22,8 @@ function Subscribe(){
       </Grid>  
     </Grid>
     
-    <Grid item md="6" xs="12">
-      <Grid container direction="row" wrap="nowrap" spacing="2" alignItems="center">
+    <Grid item md={6} xs={12}>
+      <Grid container direction="row" wrap="nowrap" spacing={2} alignItems="center">
         <Grid item>
           <TextField variant="outlined" label="Twój email" >
 

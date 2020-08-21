@@ -7,32 +7,32 @@ function Footer(){
 return(
     <Container maxWidth="lg" className="section">
         <Grid container>
-        <Grid item md="3" sm="4" xs="12">
-            <Grid container direction="column" >
+            <Grid item sm={3} md={4} xs={12}>
+                <Grid container direction="column" >
+                    <Typography>Informacje</Typography>
+                    <Typography>Regulamin</Typography>
+                    <Typography>Polityka Prywatności</Typography>
+                    <Typography>Kontakt</Typography>
+                </Grid> 
+            </Grid>
+
+            <Grid item sm={3} md={4} xs={12}>
+                <Grid container direction="column" >
                 <Typography>Informacje</Typography>
                 <Typography>Regulamin</Typography>
                 <Typography>Polityka Prywatności</Typography>
                 <Typography>Kontakt</Typography>
-            </Grid> 
-        </Grid>
+                </Grid> 
+            </Grid>
 
-        <Grid item md="3" sm="4" xs="12">
-            <Grid container direction="column" >
-            <Typography>Informacje</Typography>
-            <Typography>Regulamin</Typography>
-            <Typography>Polityka Prywatności</Typography>
-            <Typography>Kontakt</Typography>
-            </Grid> 
-        </Grid>
-
-        <Grid item md="3" sm="4" xs="12">
-            <Grid container direction="column">
-            <Typography>Informacje</Typography>
-            <Typography>Regulamin</Typography>
-            <Typography>Polityka Prywatności</Typography>
-            <Typography>Kontakt</Typography>
-            </Grid> 
-        </Grid>
+            <Grid item sm={3} md={4} xs={12}>
+                <Grid container direction="column">
+                <Typography>Informacje</Typography>
+                <Typography>Regulamin</Typography>
+                <Typography>Polityka Prywatności</Typography>
+                <Typography>Kontakt</Typography>
+                </Grid> 
+            </Grid>
         </Grid>
     </Container>
     );

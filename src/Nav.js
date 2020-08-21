@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import './Nav.css';
-import {Grid, Container, Button} from '@material-ui/core';
+import {Grid, Container} from '@material-ui/core';
 import {Link} from 'react-router-dom';
 import axios from "axios";
 

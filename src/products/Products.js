@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import './Products.css';
-import { Container, Typography, Grid, CardMedia } from '@material-ui/core';
+import { Container, Grid} from '@material-ui/core';
 import Categories from './Categories';
 import ProductNavBar from './ProductNavBar';
 import ProductItem from './ProductItem';
@@ -32,7 +32,6 @@ const CategoryProducts = (props) => {
         })
     );
 };
-
 
 function Products(props){
     const category = props.category;
