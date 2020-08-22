@@ -27,7 +27,7 @@ const CategoryProducts = (props) => {
         products.map((product, index) => {
             console.log(product);
             return(
-                <ProductItem imageUrl={product.nameUrl} name={product.name} category={product.category} price={product.price} imageHover={product.hoveredNameUrl}/>                
+                <ProductItem imageUrl={product.imageUrl} nameUrl={product.nameUrl} name={product.name} category={product.category} price={product.price} imageHover={product.hoveredImageUrl}/>                
             );                
         })
     );

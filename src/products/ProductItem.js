@@ -3,12 +3,12 @@ import './ProductItem.css';
 import {Grid, CardMedia, Typography, Button} from '@material-ui/core'
 import {Link} from 'react-router-dom';
 
-function ProductItem({imageUrl = "https://cdn.shoplo.com/4326/products/th480/aaae/1406-05.jpg",name ="DOMYŚLNY(R)",category, price="-10.00(R)", imageHover }){
+function ProductItem({imageUrl = "https://cdn.shoplo.com/4326/products/th480/aaae/1406-05.jpg", nameUrl="DEFAULT", name ="DOMYŚLNY(R)",category, price="-10.00(R)", imageHover }){
 
     return(
         <Grid item md={4}>
             <Grid container direction="column">
-            <Link to={"/" + category}>
+            <Link to={"/kategoria/" + category + "/" + nameUrl}>
                 <Grid item className="image-wrapper">
                         <CardMedia className="imageStyle" 
                         component="img"
