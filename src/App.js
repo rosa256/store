@@ -12,6 +12,7 @@ import Subscribe from './home/Subscribe';
 import PoolPhoto from './home/PoolPhoto';
 import Describe from './home/Describe';
 import Products from './products/Products';
+import ProductDetails from './productDetails/ProductDetails'
 import axios from "axios";
 
 
@@ -59,9 +60,7 @@ const ProductsByCategoryOrDetails = () => {
           <Route path={"/kategoria/" + category} exact>
             <Products category={category}/>
           </Route>,
-          <Route path={"/kategoria/" + category + "/:productName"}>
-            <ProductDetails />
-          </Route>
+          <Route path={"/kategoria/" + category + "/:productNameUrl"} render={(props) => <ProductDetails category={category} {...props}/> } />
       ];
     })
   );
