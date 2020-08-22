@@ -39,7 +39,7 @@ const useStyles = makeStyles({
   },
 });
 
-const Categories = () => {
+const ProductsByCategoryOrDetails = () => {
   const [categories, setCategories] = useState([]);
 
   const getCategories = () => {
@@ -55,14 +55,18 @@ const Categories = () => {
   }, []);
   return (
     categories.map((category, index) =>{
-      return(
-        <Route path={"/kategoria/" + category}>
-          <Products category={category}/>
-        </Route>
-      );
+      return[
+          <Route path={"/kategoria/" + category} exact>
+            <Products category={category}/>
+          </Route>,
+          <Route path={"/kategoria/" + category + "/:productName"}>
+            <ProductDetails />
+          </Route>
+      ];
     })
   );
 };
+
 
 export default function App() {
   const classes = useStyles();
@@ -85,7 +89,7 @@ export default function App() {
             <Separator />
             <Footer />
           </Route>
-          <Categories/>          
+          <ProductsByCategoryOrDetails/> 
         </Switch>
       </Router>
 
