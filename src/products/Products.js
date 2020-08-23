@@ -15,7 +15,6 @@ const CategoryProducts = (props) => {
         axios.get("http://localhost:8080/kategoria/" + props.category)
         .then(res => {            
             setProducts(res.data)
-            console.log(res.data);            
         });
     };
 
@@ -25,7 +24,6 @@ const CategoryProducts = (props) => {
 
     return (
         products.map((product, index) => {
-            console.log(product);
             return(
                 <ProductItem imageUrl={product.imageUrl} nameUrl={product.nameUrl} name={product.name} category={product.category} price={product.price} imageHover={product.hoveredImageUrl}/>                
             );                

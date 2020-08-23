@@ -16,7 +16,7 @@ function ProductItem({imageUrl = "https://cdn.shoplo.com/4326/products/th480/aaa
 
                         <CardMedia className="image-hover"
                         component="img"
-                        image={imageHover}/>
+                        image={imageUrl + "/" + nameUrl +"-hovered"}/>
                 </Grid>
             </Link>
                 <Typography className="productItemPadding">

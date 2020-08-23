@@ -4,19 +4,29 @@ import axios from 'axios';
 
 const FetchProductDetails = ({productCategory, productNameUrl}) => {
     const [productDetails, setProductDetails] = useState([]);
+    const [productImages, setProductImages] = useState([]);
     
-    const url = "http://localhost:8080/kategoria/" + productCategory + "/" + productNameUrl; 
-    console.log(url);
+    const urlProductDetails = "http://localhost:8080/kategoria/" + productCategory + "/" + productNameUrl; 
     const getProductDetails = () => {
-        axios.get(url)
+        axios.get(urlProductDetails)
         .then(res => {
             setProductDetails(res.data);
-            console.log(res.data);
+            console.log(res.data)
         })    
     }
 
+    const urlProductImages = "http://localhost:8080/imgs/kategoria/" + productCategory + "/" + productNameUrl;
+    const getProductImages = () =>{
+        
+        axios.get(urlProductImages)
+        .then(res => {
+            setProductImages(res.data);
+            console.log(res.data);
+        }, [])
+    }
     useEffect(() => {
         getProductDetails();
+        getProductImages();
     }, [])
     return(
         <h2>Ezz</h2>
@@ -27,6 +37,7 @@ const FetchProductDetails = ({productCategory, productNameUrl}) => {
 function ProductDetails(props) {
     return(
         <FetchProductDetails productCategory={props.category} productNameUrl={props.match.params.productNameUrl}/>
+        
     );
 }
 export default  ProductDetails;
