@@ -23,7 +23,7 @@ function ProductItem({imageUrl = "https://cdn.shoplo.com/4326/products/th480/aaa
                 {name}
                 </Typography>
 
-                <Typography className={["productPrice", "productItemPadding"]}>
+                <Typography className={"productPrice", "productItemPadding"}>
                 od {price} zł
                 </Typography>
 

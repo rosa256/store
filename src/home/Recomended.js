@@ -49,7 +49,7 @@ const RetriveRecomendedProducts = () => {
     return(
         recomendedProducts.map((recomendedProducts, index) => {
             return(
-                <ProductItem name={recomendedProducts.name} imageUrl={productsLinks[index]} price={recomendedProducts.price} imageHover={hoverImages[index]}/>
+                <ProductItem key={recomendedProducts.name} name={recomendedProducts.name} imageUrl={productsLinks[index]} price={recomendedProducts.price} imageHover={hoverImages[index]}/>
             );                
         })
     );

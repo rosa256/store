@@ -25,7 +25,7 @@ const CategoryProducts = (props) => {
     return (
         products.map((product, index) => {
             return(
-                <ProductItem imageUrl={product.imageUrl} nameUrl={product.nameUrl} name={product.name} category={product.category} price={product.price} imageHover={product.hoveredImageUrl}/>                
+                <ProductItem key={product.nameUrl} imageUrl={product.imageUrl} nameUrl={product.nameUrl} name={product.name} category={product.category} price={product.price} imageHover={product.hoveredImageUrl}/>                
             );                
         })
     );
@@ -38,7 +38,7 @@ function Products(props){
             <Categories/>
             <ProductNavBar/>
             <Container style={{marginTop:'24px'}} maxWidth="lg">
-                <Grid container spacing="3">
+                <Grid container spacing={3}>
                     <CategoryProducts category={category}/>
                 </Grid>
             </Container>

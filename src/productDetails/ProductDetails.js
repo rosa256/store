@@ -11,7 +11,6 @@ const FetchProductDetails = ({productCategory, productNameUrl}) => {
         axios.get(urlProductDetails)
         .then(res => {
             setProductDetails(res.data);
-            console.log(res.data)
         })    
     }
 
