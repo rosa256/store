@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import ImagesSection from './ImagesSection';
+import { Container } from '@material-ui/core';
 import axios from 'axios';
 
 
 const FetchProductDetails = ({productCategory, productNameUrl}) => {
     const [productDetails, setProductDetails] = useState([]);
-    const [productImages, setProductImages] = useState([]);
     
     const urlProductDetails = "http://localhost:8080/kategoria/" + productCategory + "/" + productNameUrl; 
     const getProductDetails = () => {
@@ -13,30 +14,19 @@ const FetchProductDetails = ({productCategory, productNameUrl}) => {
             setProductDetails(res.data);
         })    
     }
-
-    const urlProductImages = "http://localhost:8080/imgs/kategoria/" + productCategory + "/" + productNameUrl;
-    const getProductImages = () =>{
-        
-        axios.get(urlProductImages)
-        .then(res => {
-            setProductImages(res.data);
-            console.log(res.data);
-        }, [])
-    }
     useEffect(() => {
         getProductDetails();
-        getProductImages();
     }, [])
     return(
-        <h2>Ezz</h2>
+        <p></p>
     )
 }
 
-
 function ProductDetails(props) {
     return(
-        <FetchProductDetails productCategory={props.category} productNameUrl={props.match.params.productNameUrl}/>
-        
+        <Container maxWidth="lg"> 
+            <ImagesSection productCategory={props.category} productNameUrl={props.match.params.productNameUrl}/>
+        </Container>
     );
 }
 export default  ProductDetails;
