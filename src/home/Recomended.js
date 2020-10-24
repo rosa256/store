@@ -10,7 +10,7 @@ const RetriveRecomendedProducts = () => {
 
     const[recomendedProducts, setRecomendedProducts] = useState([]);
     const getRecomendedProducts = () =>{
-        axios.get("http://localhost:8080/products/recommended")
+        axios.get("http://localhost:8000/api/products/recommended")
         .then(res=> {
             console.log(res);
             

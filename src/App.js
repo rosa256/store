@@ -44,7 +44,7 @@ const ProductsByCategoryOrDetails = () => {
   const [categories, setCategories] = useState([]);
 
   const getCategories = () => {
-    axios.get("http://localhost:8080/categories")
+    axios.get("http://localhost:8000/api/products/categories")
     .then(res => {
       console.log(res);
       setCategories(res.data);

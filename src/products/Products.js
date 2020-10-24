@@ -12,7 +12,7 @@ const CategoryProducts = (props) => {
     const [products, setProducts] = useState([]);
 
     const getProducts = () => {
-        axios.get("http://localhost:8080/kategoria/" + props.category)
+        axios.get("http://localhost:8000/api/products/kategoria/" + props.category)
         .then(res => {            
             setProducts(res.data)
         });

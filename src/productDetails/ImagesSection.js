@@ -4,7 +4,7 @@ import { Grid, CardMedia } from '@material-ui/core';
 
 const FetchProductImages = ({productCategory, productNameUrl}) => {
     const[productImages, setProductImages] = useState([]);
-    var productImagesUrl = "http://localhost:8080/imgs/kategoria/" + productCategory + "/" + productNameUrl;
+    var productImagesUrl = "http://localhost:8000/api/images/links/kategoria/" + productCategory + "/" + productNameUrl;
     const getProductImages = () =>{
         axios.get(productImagesUrl)
         .then(res => {

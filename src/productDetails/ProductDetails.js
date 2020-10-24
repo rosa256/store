@@ -7,7 +7,7 @@ import axios from 'axios';
 const FetchProductDetails = ({productCategory, productNameUrl}) => {
     const [productDetails, setProductDetails] = useState([]);
     
-    const urlProductDetails = "http://localhost:8080/kategoria/" + productCategory + "/" + productNameUrl; 
+    const urlProductDetails = "http://localhost:8000/api/products/kategoria/" + productCategory + "/details/" + productNameUrl; 
     const getProductDetails = () => {
         axios.get(urlProductDetails)
         .then(res => {
