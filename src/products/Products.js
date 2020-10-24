@@ -35,7 +35,7 @@ function Products(props){
     const category = props.category;
     return(
         <div>
-            <Categories/>
+            <Categories category={category}/>
             <ProductNavBar/>
             <Container style={{marginTop:'24px'}} maxWidth="lg">
                 <Grid container spacing={3}>
