@@ -60,7 +60,7 @@ const ProductsByCategoryOrDetails = () => {
         <React.Fragment key = {category}>
           <Route path={"/kategoria/" + category} exact>
             <Products category={category}/>
-          </Route>,
+          </Route>
           <Route path={"/kategoria/" + category + "/:productNameUrl"} render={(props) => <ProductDetails category={category} {...props}/> } />
         </React.Fragment>
       );
