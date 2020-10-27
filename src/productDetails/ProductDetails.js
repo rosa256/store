@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ImagesSection from './ImagesSection';
-import { Container } from '@material-ui/core';
+import { Container, Grid } from '@material-ui/core';
 import axios from 'axios';
 
 
@@ -24,9 +24,11 @@ const FetchProductDetails = (props) => {
 
 function ProductDetails(props) {
     return(
-        <Container maxWidth="lg"> 
-            <FetchProductDetails productCategory={props.category} productNameUrl={props.match.params.productNameUrl}/>
-            <ImagesSection productCategory={props.category} productNameUrl={props.match.params.productNameUrl}/>
+        <Container maxWidth="xl">
+            <Grid container sm={8} spacing={4}>
+                <ImagesSection productCategory={props.category} productNameUrl={props.match.params.productNameUrl}/>
+            </Grid>
+            <FetchProductDetails productCategory={props.category} productNameUrl={props.match.params.productNameUrl}/>            
         </Container>
     );
 }

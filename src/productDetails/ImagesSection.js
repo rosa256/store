@@ -23,7 +23,7 @@ const GenerateImages = (props) =>{
     return(
         productImages.map((imageUrl, index) =>{
             return(
-                <Grid key={imageUrl} item sm={12} md={4}>
+                <Grid item key={imageUrl} sm={12} md={6}>
                     <CardMedia className="image-wrapper"
                     component="img"
                     image={imageUrl}/>
@@ -36,9 +36,7 @@ const GenerateImages = (props) =>{
 function ImagesSection ({productCategory, productNameUrl}){
     const productDetailImages = FetchProductImages(productCategory={productCategory}, productNameUrl={productNameUrl})
     return(
-        <Grid container >
-            <GenerateImages productCategory={productCategory} productNameUrl={productNameUrl} productImages={productDetailImages}/>
-        </Grid>
+        <GenerateImages productCategory={productCategory} productNameUrl={productNameUrl} productImages={productDetailImages}/>
     );
 }
 
