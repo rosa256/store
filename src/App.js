@@ -58,9 +58,12 @@ const ProductsByCategoryOrDetails = () => {
     categories.map((category, index) =>{
       return(
         <React.Fragment key = {category}>
+          { /*Rendering products in current chosen category*/ }
           <Route path={"/kategoria/" + category} exact>
             <Products category={category}/>
           </Route>
+          { /*OR*/ }
+          { /*Rendering exact choosen product */ }
           <Route path={"/kategoria/" + category + "/:productNameUrl"} render={(props) => <ProductDetails category={category} {...props}/> } />
         </React.Fragment>
       );

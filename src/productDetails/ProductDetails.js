@@ -4,15 +4,15 @@ import { Container } from '@material-ui/core';
 import axios from 'axios';
 
 
-const FetchProductDetails = ({productCategory, productNameUrl}) => {
+const FetchProductDetails = (props) => {
     const [productDetails, setProductDetails] = useState([]);
     
-    const urlProductDetails = "http://localhost:8000/api/products/kategoria/" + productCategory + "/details/" + productNameUrl; 
+    const urlProductDetails = "http://localhost:8000/api/products/kategoria/" + props.productCategory + "/details/" + props.productNameUrl; 
     const getProductDetails = () => {
         axios.get(urlProductDetails)
         .then(res => {
             setProductDetails(res.data);
-        })    
+        }, [])    
     }
     useEffect(() => {
         getProductDetails();
@@ -25,6 +25,7 @@ const FetchProductDetails = ({productCategory, productNameUrl}) => {
 function ProductDetails(props) {
     return(
         <Container maxWidth="lg"> 
+            <FetchProductDetails productCategory={props.category} productNameUrl={props.match.params.productNameUrl}/>
             <ImagesSection productCategory={props.category} productNameUrl={props.match.params.productNameUrl}/>
         </Container>
     );

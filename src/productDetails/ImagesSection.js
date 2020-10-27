@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Grid, CardMedia } from '@material-ui/core';
 
-const FetchProductImages = ({productCategory, productNameUrl}) => {
+function FetchProductImages ({productCategory}, {productNameUrl}) {
     const[productImages, setProductImages] = useState([]);
-    var productImagesUrl = "http://localhost:8000/api/images/links/kategoria/" + productCategory + "/" + productNameUrl;
+    var productImagesUrl = "http://localhost:8000/api/images/kategoria/" + productCategory + "/details/" + productNameUrl;
     const getProductImages = () =>{
         axios.get(productImagesUrl)
         .then(res => {
@@ -14,12 +14,12 @@ const FetchProductImages = ({productCategory, productNameUrl}) => {
 
     useEffect(() => {
         getProductImages();
-    });
+    }, []);
     return(productImages)
 }
 
 const GenerateImages = (props) =>{
-    const productImages = FetchProductImages(props);
+    const productImages = props.productImages
     return(
         productImages.map((imageUrl, index) =>{
             return(
@@ -34,9 +34,10 @@ const GenerateImages = (props) =>{
 }
 
 function ImagesSection ({productCategory, productNameUrl}){
+    const productDetailImages = FetchProductImages(productCategory={productCategory}, productNameUrl={productNameUrl})
     return(
         <Grid container >
-            <GenerateImages productCategory={productCategory} productNameUrl={productNameUrl}/>
+            <GenerateImages productCategory={productCategory} productNameUrl={productNameUrl} productImages={productDetailImages}/>
         </Grid>
     );
 }
