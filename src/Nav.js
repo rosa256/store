@@ -9,12 +9,13 @@ import axios from "axios";
 function Nav(){
     const [activeButtonId, setActiveButtonId] = useState(0);
     const [btnList, setNavButtonsList] = useState([]);
-
+    const LOGIN = 'user1'
+    const PASSWORD = 'user1'
     //TODO: POBIERANIE KATEGORI Z BAZY NA PODSTAIWE WARTOSCI Z ENUMA ProductCateories.
     //Żeby uniknąć sytuacji kiedy na bazie nie ma produktów = nie ma kategori i nav bar nie ma przycisków. 
     const generateNavButtons = () =>{
         var productCategories = [];
-        axios.get("http://localhost:8000/api/products/categories")
+        axios.get("http://localhost:8000/api/products/categories", { headers: {authorization: 'Basic ' + window.btoa(LOGIN + ":" + PASSWORD)}})
         .then(res =>{
             productCategories = res.data;
             var tempBtnList = [];

@@ -13,7 +13,9 @@ import PoolPhoto from './home/PoolPhoto';
 import Describe from './home/Describe';
 import Products from './products/Products';
 import ProductDetails from './productDetails/ProductDetails'
+import LoginForm from './LoginForm';
 import axios from "axios";
+
 
 
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
@@ -40,11 +42,14 @@ const useStyles = makeStyles({
   },
 });
 
+const LOGIN = 'user1'
+const PASSWORD = 'user1'
+
 const ProductsByCategoryOrDetails = () => {
   const [categories, setCategories] = useState([]);
 
   const getCategories = () => {
-    axios.get("http://localhost:8000/api/products/categories")
+    axios.get("http://localhost:8000/api/products/categories", { headers: {authorization: 'Basic ' + window.btoa(LOGIN + ":" + PASSWORD)}})
     .then(res => {
       console.log(res);
       setCategories(res.data);
@@ -64,12 +69,26 @@ const ProductsByCategoryOrDetails = () => {
           </Route>
           { /*OR*/ }
           { /*Rendering exact choosen product */ }
-          <Route path={"/kategoria/" + category + "/:productNameUrl"} render={(props) => <ProductDetails category={category} {...props}/> } />
+          <Route path={"/kategoria/" + category + "/:productNameUrl"} exact render={(props) => <ProductDetails category={category} {...props}/> } />
         </React.Fragment>
       );
     })
   );
 };
+
+function TriggerBasicAuth ({LOGIN}, {PASSWORD}) {
+  console.log("Triggered Basic Auth");
+  const[productImages, setProductImages] = useState([]);
+  var authUrl = "/basicauth";
+  const invokeAuth = () =>{
+      axios.get(authUrl, { headers: {authorization: 'Basic' + window.btoa(LOGIN + ":" + PASSWORD)}})
+  }
+
+  useEffect(() => {
+      invokeAuth();
+  }, []);
+  return(<p>;)</p>)
+}
 
 
 export default function App() {
@@ -93,7 +112,11 @@ export default function App() {
             <Separator />
             <Footer />
           </Route>
-          <ProductsByCategoryOrDetails/> 
+          <Route path="/basicauth" exact>
+            <LoginForm/>
+          </Route>
+          <ProductsByCategoryOrDetails/>
+          
         </Switch>
       </Router>
 

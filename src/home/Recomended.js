@@ -7,10 +7,11 @@ import axios from "axios";
 
 
 const RetriveRecomendedProducts = () => {
-
+    const LOGIN = 'user1'
+    const PASSWORD = 'user1'
     const[recomendedProducts, setRecomendedProducts] = useState([]);
     const getRecomendedProducts = () =>{
-        axios.get("http://localhost:8000/api/products/recommended")
+        axios.get("/api/products/recommended", { headers: {authorization: 'Basic ' + window.btoa(LOGIN + ":" + PASSWORD)}})
         .then(res=> {
             console.log(res);
             

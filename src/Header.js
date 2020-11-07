@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Header.css';
 import {Grid, Container, CardMedia, Typography} from '@material-ui/core';
 import {AddShoppingCart, Instagram, YouTube, Search} from '@material-ui/icons'
 import {Link} from 'react-router-dom';
+import axios from 'axios';
+
+
 
 function Header(){
     return(
@@ -30,7 +33,9 @@ function Header(){
             <Grid item sm={12} md={4}>
                 <Grid container justify="flex-end" alignItems="center" spacing={1}>
                     <Grid item>
-                        <Typography className="loginHeader">Zaloguj się</Typography>
+                        <Link to="/basicauth">
+                            <Typography className="loginHeader">Zaloguj się</Typography>
+                        </Link>
                     </Grid>
                     <Grid item> <AddShoppingCart className="iconHeader"/> </Grid>
                     <Grid item> <Search className="iconHeader"/> </Grid>

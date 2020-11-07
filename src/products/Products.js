@@ -6,13 +6,14 @@ import ProductNavBar from './ProductNavBar';
 import ProductItem from './ProductItem';
 import axios from "axios";
 
-
+const LOGIN = 'user1'
+const PASSWORD = 'user1'
 const CategoryProducts = (props) => {
     console.log(props.category)
     const [products, setProducts] = useState([]);
 
     const getProducts = () => {
-        axios.get("http://localhost:8000/api/products/kategoria/" + props.category)
+        axios.get("/api/products/kategoria/" + props.category, { headers: {authorization: 'Basic ' + window.btoa(LOGIN + ":" + PASSWORD)}})
         .then(res => {            
             setProducts(res.data)
         });
