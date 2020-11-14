@@ -15,7 +15,7 @@ function Nav(){
     //Żeby uniknąć sytuacji kiedy na bazie nie ma produktów = nie ma kategori i nav bar nie ma przycisków. 
     const generateNavButtons = () =>{
         var productCategories = [];
-        axios.get("http://localhost:8000/api/products/categories", { headers: {authorization: 'Basic ' + window.btoa(LOGIN + ":" + PASSWORD)}})
+        axios.get("/api/products/categories")
         .then(res =>{
             productCategories = res.data;
             var tempBtnList = [];

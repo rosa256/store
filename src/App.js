@@ -49,7 +49,7 @@ const ProductsByCategoryOrDetails = () => {
   const [categories, setCategories] = useState([]);
 
   const getCategories = () => {
-    axios.get("http://localhost:8000/api/products/categories", { headers: {authorization: 'Basic ' + window.btoa(LOGIN + ":" + PASSWORD)}})
+    axios.get("/api/products/categories")
     .then(res => {
       console.log(res);
       setCategories(res.data);
@@ -75,20 +75,6 @@ const ProductsByCategoryOrDetails = () => {
     })
   );
 };
-
-function TriggerBasicAuth ({LOGIN}, {PASSWORD}) {
-  console.log("Triggered Basic Auth");
-  const[productImages, setProductImages] = useState([]);
-  var authUrl = "/basicauth";
-  const invokeAuth = () =>{
-      axios.get(authUrl, { headers: {authorization: 'Basic' + window.btoa(LOGIN + ":" + PASSWORD)}})
-  }
-
-  useEffect(() => {
-      invokeAuth();
-  }, []);
-  return(<p>;)</p>)
-}
 
 
 export default function App() {

@@ -13,7 +13,7 @@ const CategoryProducts = (props) => {
     const [products, setProducts] = useState([]);
 
     const getProducts = () => {
-        axios.get("/api/products/kategoria/" + props.category, { headers: {authorization: 'Basic ' + window.btoa(LOGIN + ":" + PASSWORD)}})
+        axios.get("/api/products/kategoria/" + props.category)
         .then(res => {            
             setProducts(res.data)
         });

@@ -11,7 +11,7 @@ const RetriveRecomendedProducts = () => {
     const PASSWORD = 'user1'
     const[recomendedProducts, setRecomendedProducts] = useState([]);
     const getRecomendedProducts = () =>{
-        axios.get("/api/products/recommended", { headers: {authorization: 'Basic ' + window.btoa(LOGIN + ":" + PASSWORD)}})
+        axios.get("/api/products/recommended")
         .then(res=> {
             console.log(res);
             
